@@ -1,0 +1,768 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff; /* Ensure the main background is white */
+}
+
+/* === ELEGANT HEADER (like Medcare) === */
+.main-header {
+    background-color: #ffffff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    border-bottom: 1px solid #f0f0f0; /* Very light border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+.site-brand .site-logo { height: 40px; }
+.site-brand .site-name { color: #212529; margin-left: 0.5rem; font-weight: 600; }
+.header-actions .btn { border-radius: 20px; padding: 0.5rem 1.25rem; }
+.header-actions .btn-outline-primary { border-color: #dee2e6; color: #212529; }
+.header-actions .btn-outline-primary:hover { background-color: #0d6efd; color: white; }
+
+/* === CURVED HERO SECTION (like Medcare) === */
+.hero-section-curved {
+    background-color: #f8f9fa; /* Very light gray background */
+    padding: 4rem 0;
+    position: relative;
+    z-index: 1;
+}
+.hero-section-curved::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Curve height */
+    background: #ffffff; /* MUST match the next section's background */
+    clip-path: ellipse(60% 100% at 50% 100%);
+}
+
+/* === GENERAL PRODUCT CARD === */
+.product-card {
+    border: 1px solid #e9ecef;
+    transition: all .3s ease;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1)!important;
+}
+.product-card .card-img-top { height: 220px; object-fit: contain;
+padding: 1rem; }
+/* === HEADER IMPROVEMENTS === */
+
+/* 1. Enlarge logo and add hover effect */
+.site-brand .site-logo {
+    height: 50px; /* <-- تم تكبيره من 40 إلى 50 بكسل */
+    transition: transform 0.3s ease; /* <-- إضافة انتقال ناعم */
+}
+
+.site-brand:hover .site-logo {
+    transform: scale(1.1); /* <-- تكبير الشعار عند مرور الماوس */
+}
+
+/* 2. Style for new icon buttons */
+.btn-icon {
+    background-color: #f8f9fa; /* Light gray background */
+    color: #212529; /* Dark text */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Make it a circle */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+    background-color: #e9ecef; /* Slightly darker on hover */
+    transform: translateY(-2px);
+}
+/* === HERO SECTION ANIMATIONS & STYLE === */
+
+/* 1. Floating animation for the image */
+.hero-image-float {
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px); /* How high it floats */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* 2. Enhanced button style */
+.hero-btn {
+    border-radius: 50px; /* Fully rounded corners */
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4); /* Soft blue shadow */
+}
+
+.hero-btn i {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.5);
+}
+
+.hero-btn:hover i {
+    transform: translateX(5px); /* Move arrow to the right on hover */
+
+}
+
+/* === ENHANCED FOOTER STYLES === */
+.main-footer {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    margin-top: 4rem;
+    border-top: 1px solid #dee2e6;
+}
+.main-footer h5 {
+    color: #212529;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+.main-footer .nav-link {
+    color: #6c757d !important;
+    transition: all .2s ease;
+}
+.main-footer .nav-link:hover {
+    color: #0d6efd !important;
+    padding-left: 5px !important;
+}
+.main-footer .border-top {
+    border-color: #dee2e6 !important;
+}
+.main-footer .link-dark:hover {
+    color: #0d6efd !important;
+}
+.payment-icons img {
+    margin-left: 0.5rem;
+}
+
+/* === NEW & FINAL CATEGORY CARD STYLES === */
+.category-card {
+    border: 1px solid #e9ecef;
+    border-radius: 1rem;
+    transition: all .3s ease;
+    background-color: #ffffff; /* Start with white background */
+}
+
+.category-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #eef2ff; /* Light blue background */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+}
+
+.category-icon i {
+    color: #0d6efd; /* Blue icon color */
+    transition: all .3s ease;
+}
+
+.category-card .card-title {
+    color: #212529; /* Dark text color */
+    font-weight: 600;
+    transition: all .3s ease;
+}
+
+/* Hover Effect */
+.category-card:hover {
+    background-color: #0d6efd; /* Blue background on hover */
+    border-color: #0d6efd;
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.category-card:hover .category-icon {
+    background-color: #ffffff; /* White icon background on hover */
+}
+
+/* The icon itself should stay blue on hover in this design */
+/* .category-card:hover .category-icon i { color: #0d6efd; } */
+
+.category-card:hover .card-title {
+    color: #ffffff; /* White text on hover */
+}
+
+/* Active/Focus State Fix */
+a:focus-visible .category-card {
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
+}
+/* === CREATIVE OFFER SECTION STYLES === */
+.offer-section {
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+}
+.offer-image {
+    height: 450px;
+    object-fit: cover;
+}
+.offer-details h5 {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.pricing .original-price {
+    font-size: 1.2rem;
+    text-decoration: line-through;
+    color: #6c757d;
+}
+.pricing .discount-price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #198754; /* Green color for discount */
+    margin-left: 1rem;
+}
+
+/* Countdown Timer Styling */
+#countdown-container {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: inline-block;
+}
+#countdown {
+    display: flex;
+    gap: 1.5rem;
+}
+.countdown-item {
+    text-align: center;
+}
+.countdown-item span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #212529;
+    line-height: 1;
+}
+.countdown-item small {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #6c757d;
+}
+
+.offer-slider-details {
+    position: relative;
+    z-index: 2;
+    max-width: 50%;
+}
+/* === FINAL SLIDER & COUNTDOWN STYLES === */
+
+/* Container for text content */
+.offer-slider-details {
+    position: relative;
+    z-index: 2;
+}
+
+/* Prices */
+.offer-slider-details .original-price {
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+/* Countdown Timer Styling */
+.countdown {
+    display: flex;
+    gap: 1rem;
+}
+.countdown-item {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.countdown-item span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+.countdown-item small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+/* === FINAL POLISHED SLIDER STYLES === */
+
+/* 1. Font & Pricing Improvements */
+.offer-slider-details h1 {
+    font-family: 'Poppins', sans-serif; /* Use the main font */
+    font-weight: 700; /* Bolder */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.offer-slider-details .pricing {
+    display: flex;
+    align-items: baseline; /* Align baselines of prices */
+    gap: 0.5rem; /* Space between original and discount price */
+}
+
+.offer-slider-details .original-price {
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.offer-slider-details .discount-price {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #86b2f5;
+}
+
+/* 2. Custom Carousel Controls (Arrows) */
+#offersCarousel .carousel-control-prev,
+#offersCarousel .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.3s ease;
+}
+
+#offersCarousel .carousel-control-prev {
+    left: 20px; /* Position from left */
+}
+#offersCarousel .carousel-control-next {
+    right: 20px; /* Position from right */
+}
+
+#offersCarousel .carousel-control-prev:hover,
+#offersCarousel .carousel-control-next:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* More opaque on hover */
+}
+
+#offersCarousel .carousel-control-prev-icon,
+#offersCarousel .carousel-control-next-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* === FINAL CREATIVE SLIDER STYLES === */
+.offer-slide-content {
+    position: relative;
+    height: 500px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.offer-slide-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;  /* يملأ الخلفية */
+    background-position: center;
+    filter: blur(20px) brightness(0.6); /* طمس + تغميق */
+    z-index: 0;
+}
+.offer-slide-image {
+    position: relative;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain; /* الصورة الأصلية تبين كاملة */
+    z-index: 1;
+}
+
+.offer-slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
+    z-index: 2;
+}
+.offer-slide-details {
+    position: relative;
+    z-index: 3;
+    color: #ffffff;
+    padding: 3rem;
+    max-width: 60%;
+}
+.offer-slide-details h5 {
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+.offer-slide-details h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+.offer-slide-details .pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+.offer-slide-details .original-price {
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+.offer-slide-details .discount-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff; /* White color for better contrast on dark overlay */
+}
+
+/* New Countdown Styling */
+.countdown {
+    display: flex;
+    gap: 0.75rem;
+}
+.countdown-item {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    min-width: 70px;
+}
+.countdown-item span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+.countdown-item small {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+/* === FINAL POLISHING STYLES === */
+
+/* 1. Make original price more visible */
+.offer-slide-details .original-price {
+    opacity: 0.8; /* Increased opacity from 0.6 */
+    color: #e9ecef; /* Lighter gray color */
+}
+
+/* 2. Style for "Don't Miss These Deals!" title */
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e9ecef;
+    display: inline-block; /* To make the border only under the text */
+}
+
+/* 3. Hover effect for category cards */
+.category-card:hover .card-title {
+    color: #ffffff;
+}
+
+/* We need to re-add the blue title hover for product cards */
+.product-card .card-title {
+    transition: color 0.3s ease;
+}
+.product-card:hover .card-title {
+    color: #0d6efd;
+}
+
+/* Let's make the Latest Products cards have an active state too */
+a:focus-visible .product-card {
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
+    border-color: #0d6efd;
+}
+
+.countdown-item small {
+    color: #333; /* تغيير لون النص إلى داكن */
+    font-weight: 600; /* جعل النص أكثر سمكاً */
+}
+
+/* === NEW CREATIVE PRODUCT CARD STYLES === */
+.product-card-new {
+    border: 1px solid #f0f0f0;
+    border-radius: 1rem;
+    overflow: hidden; /* Important for positioning */
+    transition: all .3s ease;
+}
+.product-card-new:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1)!important;
+}
+
+/* Image container */
+.product-image-container {
+    position: relative;
+}
+.product-card-new .card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Quick actions (wishlist, cart) */
+.product-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0; /* Hidden by default */
+    transform: translateX(10px);
+    transition: all .3s ease;
+}
+.product-card-new:hover .product-actions {
+    opacity: 1; /* Show on hover */
+    transform: translateX(0);
+}
+.product-actions .btn-icon {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Card body and text */
+.product-card-new .card-title {
+    color: #212529;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    transition: color .3s ease;
+}
+.product-card-new:hover .card-title {
+    color: #0d6efd;
+}
+
+/* Pricing styles */
+.product-pricing .price {
+    color: #212529;
+}
+.product-pricing .discount-price {
+    color: #dc3545; /* Red for discount */
+}
+.product-pricing .original-price {
+    text-decoration: line-through;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+/* === NEW CREATIVE PRODUCT CARD STYLES === */
+.product-card-new {
+    border: 1px solid #f0f0f0;
+    border-radius: 1rem;
+    overflow: hidden; /* Important for positioning */
+    transition: all .3s ease;
+}
+.product-card-new:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1)!important;
+}
+
+/* Image container */
+.product-image-container {
+    position: relative;
+}
+.product-card-new .card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Quick actions (wishlist, cart) */
+.product-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0; /* Hidden by default */
+    transform: translateX(10px);
+    transition: all .3s ease;
+}
+.product-card-new:hover .product-actions {
+    opacity: 1; /* Show on hover */
+    transform: translateX(0);
+}
+.product-actions .btn-icon {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Card body and text */
+.product-card-new .card-title {
+    color: #212529;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    transition: color .3s ease;
+}
+.product-card-new:hover .card-title {
+    color: #0d6efd;
+}
+
+/* Pricing styles */
+.product-pricing .price {
+    color: #212529;
+}
+.product-pricing .discount-price {
+    color: #dc3545; /* Red for discount */
+}
+.product-pricing .original-price {
+    text-decoration: line-through;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+/* === NEW CREATIVE PRODUCT CARD STYLES === */
+.product-card-new {
+    border: 1px solid #f0f0f0;
+    border-radius: 1rem;
+    overflow: hidden; /* Important for positioning */
+    transition: all .3s ease;
+}
+.product-card-new:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1)!important;
+}
+
+/* Image container */
+.product-image-container {
+    position: relative;
+}
+.product-card-new .card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Quick actions (wishlist, cart) */
+.product-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0; /* Hidden by default */
+    transform: translateX(10px);
+    transition: all .3s ease;
+}
+.product-card-new:hover .product-actions {
+    opacity: 1; /* Show on hover */
+    transform: translateX(0);
+}
+.product-actions .btn-icon {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Card body and text */
+.product-card-new .card-title {
+    color: #212529;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    transition: color .3s ease;
+}
+.product-card-new:hover .card-title {
+    color: #0d6efd;
+}
+
+/* Pricing styles */
+.product-pricing .price {
+    color: #212529;
+}
+.product-pricing .discount-price {
+    color: #dc3545; /* Red for discount */
+}
+.product-pricing .original-price {
+    text-decoration: line-through;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+/* === PRO LEVEL PRODUCT CARD STYLES (like Jawwal) === */
+.product-card-pro {
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all .3s ease;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.product-card-pro:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Image */
+.product-card-pro .product-image-container {
+    position: relative;
+}
+.product-card-pro .card-img-top {
+    height: 220px;
+    object-fit: contain;
+    padding: 1rem;
+    background-color: #f8f9fa;
+}
+.product-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.75rem;
+}
+
+/* Actions (Wishlist) */
+.product-card-pro .product-actions {
+    position: absolute;
+    top: 1rem;
+    right: -50px; /* Start off-screen */
+    opacity: 0;
+    transition: all .3s ease;
+}
+.product-card-pro:hover .product-actions {
+    right: 1rem;
+    opacity: 1;
+}
+
+/* Title & Category */
+.product-card-pro .product-category {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+.product-card-pro .product-title a {
+    color: #212529;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.product-card-pro:hover .product-title a {
+    color: #0d6efd;
+}
+
+/* Pricing */
+.product-card-pro .product-pricing .discount-price { color: #dc3545; }
+.product-card-pro .product-pricing .original-price { text-decoration: line-through; font-size: 0.9rem; margin-left: 0.5rem; }
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: all .2s ease;
+}
+.add-to-cart-btn:hover {
+    background-color: #0b5ed7;
+    transform: scale(1.02);
+}

@@ -130,6 +130,8 @@ public function update(Request $request, Product $product)
         'images.*' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         'attributes' => 'nullable|array',
         'currency' => 'required|string|max:3',
+        'discount_price' => 'nullable|numeric|lt:price', 
+        'offer_ends_at' => 'nullable|date',
     ]);
 
     try {
@@ -143,6 +145,8 @@ public function update(Request $request, Product $product)
                 'quantity' => $validatedData['quantity'],
                 'description' => $validatedData['description'],
                 'currency' => $validatedData['currency'],
+                'discount_price' => $validatedData['discount_price'] ?? null,
+                'offer_ends_at' => $validatedData['offer_ends_at'] ?? null,
             ]);
 
             // 3. Handle new image uploads

@@ -17,6 +17,8 @@ class Product extends Model
     'quantity',
     'category_id',
     'currency',
+    'offer_ends_at',
+    'discount_price'
 ];
 
     // This function defines the relationship: A Product BELONGS TO a Category

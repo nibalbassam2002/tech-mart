@@ -94,6 +94,17 @@
                 <div id="attributes-container" class="p-3 border rounded bg-light">
                     <p class="text-muted text-center">{{ __('admin.select_subcategory_to_load') }}</p>
                 </div>
+                                {{-- Discount Price --}}
+                <div class="mb-3">
+                    <label for="discount_price" class="form-label">Discount Price (Optional)</label>
+                    <input type="number" name="discount_price" class="form-control" step="0.01">
+                </div>
+
+                {{-- Offer End Date --}}
+                <div class="mb-3">
+                    <label for="offer_ends_at" class="form-label">Offer Ends At (Optional)</label>
+                    <input type="datetime-local" name="offer_ends_at" class="form-control">
+                </div>
                 <div class="text-end mt-4">
                     <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">{{ __('admin.cancel') }}</a>
                     <button type="submit" class="btn btn-primary">{{ __('admin.save_product') }}</button>
@@ -126,7 +137,7 @@
                     .prop('disabled', true);
                 attributesContainer.html(
                     `<p class="text-muted text-center">{{ __('admin.select_subcategory_to_load') }}</p>`
-                    );
+                );
 
                 if (!mainCatId) {
                     subCategorySelect.select2({
@@ -168,12 +179,12 @@
                 if (!subCatId) {
                     attributesContainer.html(
                         `<p class="text-muted text-center">{{ __('admin.select_subcategory_to_load') }}</p>`
-                        );
+                    );
                     return;
                 }
 
                 attributesContainer.html(
-                `<p class="text-muted text-center">{{ __('admin.loading') }}</p>`);
+                    `<p class="text-muted text-center">{{ __('admin.loading') }}</p>`);
 
                 // --- AJAX call to get attributes ---
                 $.ajax({
@@ -184,7 +195,7 @@
                         if (data.length === 0) {
                             attributesContainer.html(
                                 `<p class="text-muted text-center">{{ __('admin.no_attributes_for_category') }}</p>`
-                                );
+                            );
                         } else {
                             data.forEach(attr => {
                                 let options = '';
@@ -208,7 +219,7 @@
                         console.error('Failed to load attributes.');
                         attributesContainer.html(
                             '<p class="text-danger text-center">Failed to load attributes.</p>'
-                            );
+                        );
                     }
                 });
             });

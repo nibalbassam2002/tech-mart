@@ -2,28 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\SocialiteController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController; // <-- استيراد جديد
+use App\Http\Controllers\Auth\AuthenticatedSessionController; 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\AttributeValueController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-*/
-
-// Frontend Routes (الواجهة الأمامية)
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+use App\Http\Controllers\Frontend\HomeController;
 
 
-// Auth Routes (روابط المصادقة)
-// We are defining them manually to have full control
+
+// Frontend Routes 
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
 Route::middleware('guest')->group(function () {
     // login, register, forgot-password routes from auth.php can be copied here if needed
 });
