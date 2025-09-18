@@ -21,10 +21,46 @@
             </a>
 
             <div class="header-actions d-flex align-items-center">
-                <a href="#" class="btn btn-icon me-2" title="Wishlist"><i class="bi bi-heart"></i></a>
-                <a href="#" class="btn btn-icon me-3" title="Shopping Cart"><i class="bi bi-cart3"></i></a>
-                <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">Login</a>
-                <a href="{{ route('register') }}" class="btn btn-primary">Sign-up</a>
+                <a href="#" class="btn btn-icon me-2" title="Wishlist">
+                    <i class="bi bi-heart"></i>
+                </a>
+                <a href="#" class="btn btn-icon me-3" title="Shopping Cart">
+                    <i class="bi bi-cart3"></i>
+                </a>
+
+                @guest
+                    <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">Login</a>
+                    <a href="{{ route('register') }}" class="btn btn-primary">Sign-up</a>
+                @else
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle"
+                            id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{ auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : asset('assets/img/profile-img.jpg') }}"
+                                alt="" width="32" height="32" class="rounded-circle me-2">
+                            <strong>{{ Str::words(auth()->user()->name, 1, '') }}</strong>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="userDropdown">
+                            @if (auth()->user()->role === 'admin')
+                                <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                            @else
+                                <li><a class="dropdown-item" href="#">My Account</a></li>
+                            @endif
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Sign out
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                @endguest
+                
             </div>
         </div>
     </header>
@@ -93,7 +129,8 @@
                 {{-- ▼▼▼ أيقونات الدفع ▼▼▼ --}}
                 <div class="payment-icons">
                     <img src="https://img.icons8.com/color/48/000000/visa.png" alt="Visa" width="38" />
-                    <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="Mastercard" width="38" />
+                    <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="Mastercard"
+                        width="38" />
                     <img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal" width="38" />
                 </div>
             </div>

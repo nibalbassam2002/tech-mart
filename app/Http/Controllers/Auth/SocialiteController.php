@@ -17,40 +17,36 @@ class SocialiteController extends Controller
     }
 
 
-    public function callback($provider)
-    {
-        try {
-            $socialUser = Socialite::driver($provider)->user();
+ public function callback($provider)
+{
+    try {
+        $socialUser = Socialite::driver($provider)->user();
 
-            // البحث عن المستخدم في قاعدة بياناتنا باستخدام إيميله
-            $user = User::where('email', $socialUser->getEmail())->first();
+        // Find or create the user
+        $user = User::updateOrCreate(
+            [
+                'email' => $socialUser->getEmail()
+            ],
+            [
+                'name' => $socialUser->getName(),
+                'google_id' => $socialUser->getId(),
+                'password' => null, // No password for social logins
+                'email_verified_at' => now(), // Assume email is verified
+            ]
+        );
 
-            // إذا كان المستخدم موجوداً
-            if ($user) {
-                // نقوم بتحديث الـ google_id الخاص به (فقط في حال لم يكن موجوداً)
-                $user->update([
-                    'google_id' => $socialUser->getId(),
-                ]);
-            } 
-            // إذا لم يكن المستخدم موجوداً، سنقوم بإنشاء حساب جديد له
-            else {
-                $user = User::create([
-                    'name' => $socialUser->getName(),
-                    'email' => $socialUser->getEmail(),
-                    'google_id' => $socialUser->getId(),
-                    'password' => null, // لا يوجد كلمة مرور
-                ]);
-            }
+        // 3. Login the user
+        Auth::login($user);
 
-            // 3. تسجيل دخول المستخدم في موقعنا
-            Auth::login($user);
-
-            // 4. توجيهه إلى لوحة التحكم
-            return redirect('/dashboard');
-
-        } catch (\Exception $e) {
-            // في حال حدوث أي خطأ، يتم إعادته إلى صفحة تسجيل الدخول
-            return redirect('/login')->with('error', 'Something went wrong or you have cancelled the login');
+        // 4. Check the user's role and redirect accordingly
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.dashboard'); // Redirect admin to admin dashboard
         }
+
+        return redirect()->route('home'); // Redirect regular customers to the homepage
+
+    } catch (\Exception $e) {
+        return redirect('/login')->with('error', 'Something went wrong or you have cancelled the login.');
     }
+}
 }

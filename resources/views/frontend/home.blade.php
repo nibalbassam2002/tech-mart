@@ -58,7 +58,7 @@
 
     {{-- 3. DYNAMIC & CREATIVE Offers Slider Section (FINAL) --}}
     @if ($featuredOffers->isNotEmpty())
-        <div class.offer-section my-5">
+        <div class.offer-section my-5>
             <div class="container">
                 <h2 class="pb-2 border-bottom text-center mb-5">Don't Miss These Deals!</h2>
                 <div id="offersCarousel" class="carousel slide" data-bs-ride="carousel">
